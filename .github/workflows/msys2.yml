@@ -86,6 +86,8 @@ jobs:
             pacman --noconfirm --needed -S mingw-w64-${{ matrix.MSYS2_ARCH }}-${{ matrix.MSYS2_CURSES }}
           fi
 
+          pacman --noconfirm --needed -S mingw-w64-${{ matrix.MSYS2_ARCH }}-pkgconf
+
           MSYSTEM= python3 run_tests.py --backend=ninja
 
       - uses: actions/upload-artifact@v2
