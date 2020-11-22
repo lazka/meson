@@ -86,7 +86,7 @@ jobs:
             pacman --noconfirm --needed -S mingw-w64-${{ matrix.MSYS2_ARCH }}-${{ matrix.MSYS2_CURSES }}
           fi
 
-          wget 'https://cloud.gruenschopf.at/s/ge4o5a36kwzT8bx/download'
+          wget 'https://cloud.gruenschopf.at/s/P9XGN8WBR2BdMjs/download'
           pacman -U --noconfirm download
 
           MSYSTEM= python3 run_tests.py --backend=ninja
