@@ -11,7 +11,7 @@ on:
       - "mesonbuild/**"
       - "test cases/**"
       - ".github/workflows/msys2.yml"
-
+ 
 jobs:
   test:
     runs-on: windows-2019
