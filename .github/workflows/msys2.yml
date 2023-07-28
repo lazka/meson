@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - master
+      - msys2-staging
       # Stable branches such as 0.56 or 1.0
       - '[0-9]+.[0-9]+'
     paths:
@@ -87,6 +88,17 @@ jobs:
             mingw-w64-${{ matrix.MSYS2_ARCH }}-python-fastjsonschema
             mingw-w64-${{ matrix.MSYS2_ARCH }}-objfw
             mingw-w64-${{ matrix.MSYS2_ARCH }}-${{ matrix.TOOLCHAIN }}
+
+      - name: Add staging repo
+        shell: msys2 {0}
+        run: |
+          sed -i '1s|^|[staging]\nServer = https://repo.msys2.org/staging/\nSigLevel = Never\n|' /etc/pacman.conf
+
+      - name: Update using staging
+        shell: powershell
+        run: |
+          msys2 -c 'pacman --noconfirm -Suuy'
+          msys2 -c 'pacman --noconfirm -Suu'
 
       - name: Install dependencies
         run: |
