@@ -72,6 +72,7 @@ jobs:
             unzip
             mingw-w64-${{ matrix.MSYS2_ARCH }}-cmake
             mingw-w64-${{ matrix.MSYS2_ARCH }}-glib2
+            mingw-w64-${{ matrix.MSYS2_ARCH }}-gobject-introspection
             mingw-w64-${{ matrix.MSYS2_ARCH }}-libxml2
             mingw-w64-${{ matrix.MSYS2_ARCH }}-ninja
             mingw-w64-${{ matrix.MSYS2_ARCH }}-pkg-config
